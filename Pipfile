@@ -12,6 +12,8 @@ streamlit = "*"
 seaborn = "*"
 matplotlib = "*"
 sklearn="*"
+nlp="*"
+sumy="*"
 
 
 [requires]
