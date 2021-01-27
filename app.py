@@ -36,7 +36,14 @@ from sklearn.model_selection import KFold
 from sklearn.model_selection import LeaveOneOut
 from sklearn.preprocessing import StandardScaler
 import base64
- 
+from textblob import TextBlob 
+import spacy
+from gensim.summarization import summarize
+
+# Sumy Summary Pkg
+from sumy.parsers.plaintext import PlaintextParser
+from sumy.nlp.tokenizers import Tokenizer
+from sumy.summarizers.lex_rank import LexRankSummarizer 
 def get_binary_file_downloader_html(bin_file, file_label='File'):
     with open(bin_file, 'rb') as f:
         data = f.read()
@@ -277,7 +284,7 @@ if datasetchoice=='No':
   st.sidebar.subheader('Choose Classifer')
   classifier_name = st.sidebar.selectbox(
       'Choose classifier',
-      ('KNN', 'SVM', 'Random Forest','Logistic Regression','GradientBoosting','ADABoost','Unsupervised Learning(K-MEANS)','Deep Learning')
+      ('KNN', 'SVM', 'Random Forest','Logistic Regression','GradientBoosting','ADABoost','Unsupervised Learning(K-MEANS)','Deep Learning','NLP')
   )
   
   
@@ -293,7 +300,8 @@ if datasetchoice=='No':
   X_tested= sl.fit_transform(X_test)
   
   class_name=['yes','no']  
-  
+#   if classifier_name == 'NLP':
+     
          
   if classifier_name == 'Unsupervised Learning(K-MEANS)':
        st.sidebar.subheader('Model Hyperparmeter')
