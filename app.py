@@ -62,7 +62,7 @@ except Exception as e:
  
 """ Common ML Dataset Explorer """
 st.title("Machine Learning Tutorial App")
-st.subheader("Explorer with Streamlit")
+st.subheader(" Explorer with Streamlit")
  
 html_temp = """
 <div style="background-color:#000080;"><p style="color:white;font-size:50px;padding:10px">ML is Awesome</p></div>
