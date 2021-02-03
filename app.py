@@ -37,8 +37,7 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.preprocessing import StandardScaler
 import base64
 from textblob import TextBlob 
-import spacy
-from gensim.summarization import summarize
+
 
 # Sumy Summary Pkg
 from sumy.parsers.plaintext import PlaintextParser
