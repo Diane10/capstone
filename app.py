@@ -59,7 +59,6 @@ try:
     import streamlit as st
 except Exception as e:
     print(e)
-import streamlit.components.v1 as stc
  
 """ Common ML Dataset Explorer """
 st.title("Machine Learning Tutorial App")
