@@ -10,9 +10,9 @@ import streamlit as st
 from sklearn.ensemble import  AdaBoostClassifier, GradientBoostingClassifier
 from sklearn.ensemble import VotingClassifier
 from sklearn.ensemble import ExtraTreesClassifier
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.layers import Flatten
+# from tensorflow.keras.models import Sequential
+# from tensorflow.keras.layers import Dense
+# from tensorflow.keras.layers import Flatten
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
@@ -336,24 +336,24 @@ if datasetchoice=='No':
                #d_link = make_downloadable(file_to_download)
                #st.markdown(d_link,unsafe_allow_html=True)
                    
-  if classifier_name == 'Deep Learning':
-      st.sidebar.subheader('Model Hyperparmeter')
-      epochs= st.sidebar.slider("number of Epoch",1,30,key='epoch')
-      units= st.sidebar.number_input("Dense layers",3,30,key='units')
-      rate= st.sidebar.slider("Learning Rate",0,5,step=1,key='rates')
-      activation= st.sidebar.radio("Activation Function",("softmax","sigmoid"),key='activations')
-      optimizer= st.sidebar.radio("Optimizer",("rmsprop","Adam"),key='opts')
+#   if classifier_name == 'Deep Learning':
+#       st.sidebar.subheader('Model Hyperparmeter')
+#       epochs= st.sidebar.slider("number of Epoch",1,30,key='epoch')
+#       units= st.sidebar.number_input("Dense layers",3,30,key='units')
+#       rate= st.sidebar.slider("Learning Rate",0,5,step=1,key='rates')
+#       activation= st.sidebar.radio("Activation Function",("softmax","sigmoid"),key='activations')
+#       optimizer= st.sidebar.radio("Optimizer",("rmsprop","Adam"),key='opts')
       
-      if st.sidebar.button("classify",key='deeps'):
-          X_train = X_train / 256.
-          model = Sequential()
-          model.add(Flatten())
-          model.add(Dense(units=units,activation='relu'))
-          model.add(Dense(units=units,activation=activation))
-          model.compile(loss='sparse_categorical_crossentropy',optimizer=optimizer,learning_rate=rate,metrics=['accuracy'])
-          model.fit(X_train.values, y_train.values, epochs=epochs)
-          test_loss, test_acc =model.evaluate(X_test.values,  y_test.values, verbose=2)
-          st.write('Deep Learning Model accuracy: ',test_acc.round(2))
+#       if st.sidebar.button("classify",key='deeps'):
+#           X_train = X_train / 256.
+#           model = Sequential()
+#           model.add(Flatten())
+#           model.add(Dense(units=units,activation='relu'))
+#           model.add(Dense(units=units,activation=activation))
+#           model.compile(loss='sparse_categorical_crossentropy',optimizer=optimizer,learning_rate=rate,metrics=['accuracy'])
+#           model.fit(X_train.values, y_train.values, epochs=epochs)
+#           test_loss, test_acc =model.evaluate(X_test.values,  y_test.values, verbose=2)
+#           st.write('Deep Learning Model accuracy: ',test_acc.round(2))
       
   if classifier_name == 'SVM':
       st.sidebar.subheader('Model Hyperparmeter')
@@ -870,24 +870,24 @@ elif datasetchoice == 'Yes':
       X_tested= sl.fit_transform(X_test)
       
       class_name=['yes','no']
-      if classifier_name == 'Deep Learning':
-          st.sidebar.subheader('Model Hyperparmeter')
-          epochs= st.sidebar.slider("number of Epoch",1,30,key='epoch')
-          units= st.sidebar.number_input("Dense layers",3,30,step=1,key='units')
-          rate= st.sidebar.slider("Learning Rate",0,5,key='rate')
-          activation= st.sidebar.radio("Activation Function",("softmax","sigmoid"),key='activation')
-          optimizer= st.sidebar.radio("Optimizer",("rmsprop","Adam"),key='opt')
+#       if classifier_name == 'Deep Learning':
+#           st.sidebar.subheader('Model Hyperparmeter')
+#           epochs= st.sidebar.slider("number of Epoch",1,30,key='epoch')
+#           units= st.sidebar.number_input("Dense layers",3,30,step=1,key='units')
+#           rate= st.sidebar.slider("Learning Rate",0,5,key='rate')
+#           activation= st.sidebar.radio("Activation Function",("softmax","sigmoid"),key='activation')
+#           optimizer= st.sidebar.radio("Optimizer",("rmsprop","Adam"),key='opt')
           
-          if st.sidebar.button("classify",key='deep'):
-              X_train = X_train / 256.
-              model = Sequential()
-              model.add(Flatten())
-              model.add(Dense(units=units,activation='relu'))
-              model.add(Dense(units=units,activation=activation))
-              model.compile(loss='sparse_categorical_crossentropy',optimizer=optimizer,learning_rate=rate,metrics=['accuracy'])
-              model.fit(X_train.values, y_train.values, epochs=epochs)
-              test_loss, test_acc =model.evaluate(X_test.values,  y_test.values, verbose=2)
-              st.write('Deep Learning Model accuracy: ',test_acc.round(2))
+#           if st.sidebar.button("classify",key='deep'):
+#               X_train = X_train / 256.
+#               model = Sequential()
+#               model.add(Flatten())
+#               model.add(Dense(units=units,activation='relu'))
+#               model.add(Dense(units=units,activation=activation))
+#               model.compile(loss='sparse_categorical_crossentropy',optimizer=optimizer,learning_rate=rate,metrics=['accuracy'])
+#               model.fit(X_train.values, y_train.values, epochs=epochs)
+#               test_loss, test_acc =model.evaluate(X_test.values,  y_test.values, verbose=2)
+#               st.write('Deep Learning Model accuracy: ',test_acc.round(2))
               
       if classifier_name == 'SVM':
           st.sidebar.subheader('Model Hyperparmeter')
